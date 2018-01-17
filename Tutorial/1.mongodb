@@ -1,0 +1,11 @@
+https://www.npmjs.com/package/mongodb - The official MongoDB driver for Node.js. Provides a high-level API on top of mongodb-core that is meant for end users.
+To connect (and do CRUD) to MongoDB:
+https://github.com/mongodb/node-mongodb-native
+npm install mongodb@2.2.5 --save
+
+----------------------------------------------------
+
+Distructure - Pulling out variable from an object - 
+var user = {name: 'andrew', age: 25}
+var {name} = user;
+console.log(name)
