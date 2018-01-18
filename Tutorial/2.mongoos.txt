@@ -1,0 +1,7 @@
+http://mongoosejs.com/docs/guide.html
+
+npm i mongoose@4.5.9 --save
+
+Validation: http://mongoosejs.com/docs/validation.html
+
+Schema: http://mongoosejs.com/docs/guide.html

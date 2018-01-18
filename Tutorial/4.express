@@ -1,0 +1,4 @@
+npm i express@4.14.0 body-parser@1.15.2 --save
+
+BODY-PARSER: allows us to send Json to the server.
+it takes the string body and turns it into a javascript object.
