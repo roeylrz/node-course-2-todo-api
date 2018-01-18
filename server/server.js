@@ -21,6 +21,14 @@ app.post('/todos', (req, res) => {//to set up a route
     });
 });
 
+app.get('/todos', (req, res) => {
+    Todo.find().then((todos) => {
+        res.send({todos}); //we are sending {todos} as an object and not todos as an array in order to let us edit the data
+    }, (e) => {
+        res.status(400).send(e);
+    })
+});
+
 app.listen(3000, () => {
     console.log('Starten on port 3000');
 });
