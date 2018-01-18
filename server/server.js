@@ -24,3 +24,5 @@ app.post('/todos', (req, res) => {//to set up a route
 app.listen(3000, () => {
     console.log('Starten on port 3000');
 });
+
+module.exports = {app};
