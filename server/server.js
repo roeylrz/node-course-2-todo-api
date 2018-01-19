@@ -8,6 +8,7 @@ const {Todo} = require('./models/todo');
 const {User} = require('./models/user');
 
 var app = express();
+const port = process.env.PORT || 3000;//For HEROKU. process.env.PORT will be set if its running on Heroku but not if its run locally - for that we use 3000
 
 app.use(bodyParser.json()); //Midleware to get the json body from the request
 
@@ -45,8 +46,23 @@ app.get('/todos/:id', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log('Starten on port 3000');
+app.delete('/todos/:id', (req, res) => {
+    const id = req.params.id;
+    if (!ObjectID.isValid(id)) {
+        return res.status(404).send();
+    }   
+    Todo.findByIdAndRemove(id).then((todo) =>{
+        if (!todo) {
+            return res.status(404).send();
+        }
+        res.send(todo);
+    }).catch((e) => {
+        res.status(400).send(e);
+    })
+});
+
+app.listen(port, () => {
+    console.log(`Started on port ${port}`);
 });
 
 module.exports = {app};
