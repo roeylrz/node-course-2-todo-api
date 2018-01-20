@@ -1,3 +1,5 @@
+require('./config/config');
+
 const _ = require('lodash');
 //We want the server only to handle our routs
 const express = require('express');
@@ -9,7 +11,7 @@ const {Todo} = require('./models/todo');
 const {User} = require('./models/user');
 
 var app = express();
-const port = process.env.PORT || 3000;//For HEROKU. process.env.PORT will be set if its running on Heroku but not if its run locally - for that we use 3000
+const port = process.env.PORT;// || 3000;//For HEROKU. process.env.PORT will be set if its running on Heroku but not if its run locally - for that we use 3000
 
 app.use(bodyParser.json()); //Midleware to get the json body from the request
 
