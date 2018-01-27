@@ -1,0 +1,16 @@
+See file: playground\hashing for background.
+
+npm i jsonwebtoken@7.1.9 --save
+We will get two functions:
+1. To create the token - jwt.sign
+2. To verify the token - jwt.verify
+
+jwt.sign //take the object, in this case the data with the user id and signed it. 
+         //It creates the hash and then it ruturns the token value
+jwt.verify//Takes the token and makes shure the data was not manipulated
+//-----------------
+
+1. Model methods - are called with User. for example - User.findByToken. 
+   It doesn't exist in MONGOOSE and we need to custom create it
+2. Instance methods - are called with individual user. for example - user.generateAuthToken
+   We will use it in the - UserSchema.methods

@@ -90,7 +90,24 @@ app.patch('/todos/:id', (req, res) => {
         res.status(400).send();
     })
 })
+//-------USERS:
+app.post('/users', (req, res) => {
+    const body = _.pick(req.body, ['email', 'password']); 
 
+    // var user = new User({
+    //     email: body.email,
+    //     password: body.password
+    // });
+    var user = new User(body);
+     user.save().then(() => {
+         return user.generateAuthToken();//user. -Instance methods that are called with individual user
+     }).then((token) => {
+        res.header('x-auth', token).send(user);//'x-auth' - says that we create custom value
+     }).catch((e) => {
+         res.status(400).send(e);
+     });
+ });
+ 
 
 app.listen(port, () => {
     console.log(`Started on port ${port}`);
